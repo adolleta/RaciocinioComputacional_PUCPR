@@ -1,3 +1,5 @@
+import json
+
 alunos = []
 professores = []
 disciplinas = []
@@ -5,8 +7,26 @@ turmas = []
 matriculas = []
 
 
+# Função para exportar uma lista de um arquivo JSON
+def exportar_para_json(lista, nome_arquivo):
+    with open(nome_arquivo, 'w') as arquivo_json:
+        json.dump(lista, arquivo_json)
+    print(f"\nDados exportados para {nome_arquivo} com sucesso!")
+
+
+# Função para importar uma lista de um arquivo JSON
+def importar_de_json(nome_arquivo, lista):
+    try:
+        with open(nome_arquivo, 'r') as arquivo_json:
+            dados = json.load(arquivo_json)
+            lista.extend(dados)
+        print(f"\nDados importados de {nome_arquivo} com sucesso!")
+    except FileNotFoundError:
+        print(f"\nArquivo {nome_arquivo} não encontrado.")
+
+
 def cadastrar_aluno():
-    codigo = input("Digite o código: ")
+    codigo = input("\nDigite o código: ")
     nome = input("Digite o nome: ")
     cpf = input("Digite o CPF: ")
 
@@ -286,6 +306,8 @@ while True:
             print("(2) Listar.")
             print("(3) Editar.")
             print("(4) Excluir.")
+            print('(5) exportar')
+            print('(6) importar')
             print("(0) Retornar ao menu principal\n")
             escolha = input("Informe a ação desejada: ")
 
@@ -297,6 +319,10 @@ while True:
                 editar_aluno()
             elif escolha == '4':
                 excluir_aluno()
+            elif escolha == '5':
+                exportar_para_json(alunos, 'alunos.json')
+            elif escolha == '6':
+                importar_de_json('alunos.json', alunos)
             elif escolha == '0':
                 break
             else:
@@ -309,6 +335,8 @@ while True:
             print("(2) Listar.")
             print("(3) Editar.")
             print("(4) Excluir.")
+            print('(5) exportar')
+            print('(6) importar')
             print("(0) Retornar ao menu principal\n")
             escolha = input("Informe a ação desejada: ")
 
@@ -320,6 +348,10 @@ while True:
                 editar_professor()
             elif escolha == '4':
                 excluir_professor()
+            elif escolha == '5':
+                exportar_para_json(professores, 'professores.json')
+            elif escolha == '6':
+                importar_de_json('professores.json', professores)
             elif escolha == '0':
                 break
             else:
@@ -333,6 +365,8 @@ while True:
             print("(2) Listar.")
             print("(3) Editar.")
             print("(4) Excluir.")
+            print('(5) exportar')
+            print('(6) importar')
             print("(0) Retornar ao menu principal\n")
             escolha = input("Informe a ação desejada: ")
 
@@ -344,6 +378,10 @@ while True:
                 editar_disciplinas()
             elif escolha == '4':
                 excluir_disciplina()
+            elif escolha == '5':
+                exportar_para_json(disciplinas, 'disciplinas.json')
+            elif escolha == '6':
+                importar_de_json('disciplinas.json', disciplinas)
             elif escolha == '0':
                 break
             else:
@@ -356,6 +394,8 @@ while True:
             print("(2) Listar.")
             print("(3) Editar.")
             print("(4) Excluir.")
+            print('(5) exportar')
+            print('(6) importar')
             print("(0) Retornar ao menu principal\n")
             escolha = input("Informe a ação desejada: ")
 
@@ -367,6 +407,10 @@ while True:
                 editar_turma()
             elif escolha == '4':
                 excluir_turma()
+            elif escolha == '5':
+                exportar_para_json(turmas, 'turmas.json')
+            elif escolha == '6':
+                importar_de_json('turmas.json', turmas)
             elif escolha == '0':
                 break
             else:
@@ -379,6 +423,8 @@ while True:
             print("(2) Listar.")
             print("(3) Editar.")
             print("(4) Excluir.")
+            print('(5) exportar')
+            print('(6) importar')
             print("(0) Retornar ao menu principal\n")
             escolha = input("Informe a ação desejada: ")
 
@@ -390,6 +436,10 @@ while True:
                 editar_matricula()
             elif escolha == '4':
                 excluir_matricula()
+            elif escolha == '5':
+                exportar_para_json(matriculas, 'matriculas.json')
+            elif escolha == '6':
+                importar_de_json('matriculas.json', matriculas)
             elif escolha == '0':
                 break
             else:
