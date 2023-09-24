@@ -325,6 +325,7 @@ while True:
             else:
                 print("Opção inválida. Tente novamente.")
 
+    # menu disciplina
     elif menu == "3":
         while True:
             print("\n[Disciplina] Menu de operações:\n")
@@ -393,3 +394,5 @@ while True:
                 break
             else:
                 print("Opção inválida. Tente novamente.")
+
+# fim :o)
