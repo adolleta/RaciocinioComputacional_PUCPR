@@ -7,14 +7,12 @@ turmas = []
 matriculas = []
 
 
-# Função para exportar uma lista de um arquivo JSON
 def exportar_para_json(lista, nome_arquivo):
     with open(nome_arquivo, 'w') as arquivo_json:
         json.dump(lista, arquivo_json)
     print(f"\nDados exportados para {nome_arquivo} com sucesso!")
 
 
-# Função para importar uma lista de um arquivo JSON
 def importar_de_json(nome_arquivo, lista):
     try:
         with open(nome_arquivo, 'r') as arquivo_json:
@@ -283,7 +281,6 @@ def listar_matriculas():
         print("\nNenhuma matrícula cadastrada.")
 
 
-# -- = Menu principal = --
 while True:
     print("\n- = Menu principal = -\n")
     print('(1) Gerenciar alunos.')
@@ -294,11 +291,9 @@ while True:
     print('(0) Sair\n')
     menu = input("informe a opção desejada: ")
 
-    # quebra de loop
     if menu == "0":
         break
 
-    # -- == Opcões do aluno == --
     elif menu == "1":
         while True:
             print("\n[Aluno] Menu de operações:\n")
@@ -357,7 +352,6 @@ while True:
             else:
                 print("Opção inválida. Tente novamente.")
 
-    # menu disciplina
     elif menu == "3":
         while True:
             print("\n[Disciplina] Menu de operações:\n")
